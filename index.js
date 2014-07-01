@@ -80,8 +80,8 @@ module.exports.write = function write(destPath, options) {
     var sourceMap = file.sourceMap;
     sourceMap.file = file.relative;
 
-    if (options.sourceRoot)
-      sourceMap.sourceRoot = options.sourceRoot;
+    if (options.sourceRoot !== null)
+      sourceMap.sourceRoot = options.sourceRoot; // empty string is allowed
 
     if (options.includeContent) {
       sourceMap.sourceRoot = options.sourceRoot || '/source/';
